@@ -1,18 +1,18 @@
 @font-face {
-  src: url("../fonts/DancingScript-Bold.ttf") format("ttf");
+  src: url("../../fonts/DancingScript-Bold.ttf") format("ttf");
   font-family: "Dancing Script";
   font-weight: 700;
 }
 
 @font-face {
-  src: url("../fonts/DancingScript-Medium.ttf") format("ttf");
+  src: url("../../fonts/DancingScript-Medium.ttf") format("ttf");
   font-family: "Dancing Script";
   font-weight: 500;
 }
 
 
 @font-face {
-  src: url("../fonts/DancingScript-Regular.ttf") format("ttf");
+  src: url("../../fonts/DancingScript-Regular.ttf") format("ttf");
   font-family: "Dancing Script";
   font-weight: 400;
 }
