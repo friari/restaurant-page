@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -32,6 +33,25 @@ module.exports = {
           'postcss-loader',
         ]
       }
+    ]
+  },
+  optimization: {
+    minimizer: [
+      "...",
+      new ImageMinimizerPlugin({
+        minimizer: {
+          filename: "optimized-[name][ext]",
+          implementation: ImageMinimizerPlugin.imageminMinify,
+          options: {
+            plugins: [
+              "imagemin-gifsicle",
+              "imagemin-jpegtran",
+              "imagemin-optipng",
+              "imagemin-svgo",
+            ]
+          }
+        }
+      })
     ]
   },
   output: {
