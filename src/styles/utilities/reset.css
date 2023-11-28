@@ -1,0 +1,16 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+/* css reset for a tags */
+a {
+  text-decoration: none;
+  color: inherit;
+}
