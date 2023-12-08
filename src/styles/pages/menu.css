@@ -1,0 +1,65 @@
+.menu {
+  & .menu__container {
+    background: rgba(51,51,51,0.8);
+    color: #C3C2C4;
+    padding: 2rem 1rem 2.5rem;
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+
+  & .menu__header {
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    margin-bottom: 1.25rem;
+    line-height: 1;
+  }
+
+  & .menu__items {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  & .menu__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: .5rem;
+    max-width: 34.375rem;
+    margin: 0 auto;
+
+    &:not(:last-child) {
+      margin-bottom: .75rem;
+    }
+  }
+
+  & .menu__item-food {
+    font-size: .875rem;
+  }
+
+  & .menu__item-price {
+    font-size: .75rem;
+  }
+
+  & .dot {
+    flex-grow: 1;
+    border-bottom: 1px dotted #C3C2C4;
+    transform: translateY(-2px);
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .menu {
+    & .menu__container {
+      padding: 3rem 2rem;
+    }
+
+    & .menu__header {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .menu {
+    padding-top: 4rem;
+  }
+}
