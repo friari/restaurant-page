@@ -1,4 +1,4 @@
-import { buildNavItems, navItems } from './construction';
+import { buildNavItems } from './construction';
 
 const buildLogo = () => {
   const logoContainer = document.createElement('div');
