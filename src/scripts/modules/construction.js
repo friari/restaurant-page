@@ -7,23 +7,12 @@ export const reset = () => {
   if (currentPage) currentPage.remove();
 }
 
-const loadHomePage = (e, contentDiv, navItems) => {
-  e.preventDefault();
+export const loadComponent = (pageLoader, contentDiv, attachListeners = false, additionalArgs = []) => {
   reset();
-  contentDiv.appendChild(buildHome(navItems));
-  attachEventListeners(contentDiv);
-}
-
-const loadMenuPage = (e, contentDiv, menuItems) => {
-  e.preventDefault();
-  reset();
-  contentDiv.appendChild(buildMenu(menuItems));
-}
-
-const loadContactPage = (e, contentDiv) => {
-  e.preventDefault();
-  reset();
-  contentDiv.appendChild(buildContact());
+  const page = pageLoader(...additionalArgs);
+  contentDiv.appendChild(page);
+  if (!attachListeners) return;
+  attachEventListeners(contentDiv, page);
 }
 
 export const navItems = ['Menu', 'Contact'];
@@ -54,12 +43,13 @@ export const buildNavItems = (navItems) => {
   return nav;
 }
 
-export function attachEventListeners(contentDiv) {
-  let homeLinks = document.querySelectorAll('[data-link="home"]');
-  let menuLinks = document.querySelectorAll('[data-link="menu"]');
-  let contactLinks = document.querySelectorAll('[data-link="contact"]');
+export function attachEventListeners(contentDiv, container, listener) {
+  let containerLinks = container.querySelectorAll('[data-link]');
 
-  homeLinks.forEach(item => item.addEventListener('click', (e) => loadHomePage(e, contentDiv, navItems)));
-  menuLinks.forEach(item => item.addEventListener('click', (e) => loadMenuPage(e, contentDiv, menuItems)));
-  contactLinks.forEach(item => item.addEventListener('click', (e) => loadContactPage(e, contentDiv)));
+  containerLinks.forEach(item => {
+    const linkTo = item.getAttribute('data-link').charAt(0).toUpperCase() + item.getAttribute('data-link').slice(1);
+    item.addEventListener('click', () => {
+      listener(eval(`build${linkTo}`), contentDiv, eval(linkTo === 'Home'), eval(`${linkTo === "Menu" ? eval(`${item.getAttribute('data-link')}Items`) : null}`));
+    });
+  });
 }
