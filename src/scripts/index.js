@@ -1,4 +1,5 @@
-import { navItems, loadComponent } from './modules/construction';
+import { loadComponent } from './modules/loaders';
+import { navItems } from './modules/data';
 import buildHeader from './modules/header';
 import buildHome from './modules/home';
 

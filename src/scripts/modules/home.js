@@ -1,6 +1,6 @@
-import { buildNavItems, navItems } from './construction';
+import { buildNavItems } from './construction';
 
-const buildHome = () => {
+const buildHome = (navItems) => {
   const homePage = document.createElement('div');
   const homeContainer = document.createElement('div');
   const homeNav = buildNavItems(navItems);
